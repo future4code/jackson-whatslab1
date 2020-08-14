@@ -5,7 +5,7 @@ class PostWhats extends React.Component {
 
     arrayComentario: [
       {
-        nome: "",
+        Nome: "",
         Mensagem: ""
       }],
     
@@ -13,21 +13,24 @@ class PostWhats extends React.Component {
     valorInputMensagem: ""
   };
 
-  adicionaMensagem = () => {
+  adicionaMensagem = () => { 
    // Colocamos em uma variavel o objeto que representa uma nova mensagem
     const novaMensagem = {
       
-      Usuario: this.state.valorInputUsuario,
+      Nome: this.state.valorInputUsuario,
       
       Mensagem: this.state.valorInputMensagem
       
     };
+    
 
   // Copia array de comentarios e adiciona um nova mensagem no final
     const novasMensagems = [...this.state.arrayComentario, novaMensagem];
 
     // Define o estado "arrayComentario" como a variavel "novasMensagems"
     this.setState({ arrayComentario: novasMensagems });
+
+    this.setState({ valorInputMensagem: "" })
   };
 
   onChangeInputUsuario = (event) => {
@@ -45,15 +48,16 @@ class PostWhats extends React.Component {
    const mensagemEnviada = this.state.arrayComentario.map((bananinha) => {
       return (
         <p>
-          {bananinha.nome} - {bananinha.Mensagem}
+          {bananinha.Nome}  {bananinha.Mensagem}
         </p>
       );
     });
 
     return (
       <div>
+        <div id="container-principal">
         <div>{mensagemEnviada}</div>
-        <div>
+        <div id="container-">
           <input
            
             value={this.state.valorInputUsuario}
@@ -68,7 +72,8 @@ class PostWhats extends React.Component {
             onChange={this.onChangeInputMensagem}
             placeholder={"Mensagem"}
           />
-          <button onClick={this.adicionaPessoa}>Adicionar</button>
+          <button onClick={this.adicionaMensagem}>Adicionar</button>
+          </div>
         </div>
         
       </div>
