@@ -23,6 +23,7 @@ const Botao = styled.button`
 
 class PostWhats extends React.Component {
   state = {
+
     arrayComentario: [
       {
         Nome: "",
@@ -40,7 +41,13 @@ class PostWhats extends React.Component {
       Nome: this.state.valorInputUsuario,
       
       Mensagem: this.state.valorInputMensagem
+      
     };
+    
+
+  // Copia array de comentarios e adiciona um nova mensagem no final
+    const novasMensagems = [...this.state.arrayComentario, novaMensagem];
+
     // Define o estado "arrayComentario" como a variavel "novasMensagems"
     this.setState({ arrayComentario: novasMensagems });
 
@@ -59,7 +66,7 @@ class PostWhats extends React.Component {
 
   render() {
   // está mapeado o array, precisamos deste código?
-   const mensagemEnviada = this.state.pessoas.map((pessoa) => {
+   const mensagemEnviada = this.state.arrayComentario.map((bananinha) => {
       return (
         <p>
           {bananinha.Nome}  {bananinha.Mensagem}
