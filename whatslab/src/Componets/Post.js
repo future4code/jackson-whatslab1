@@ -1,19 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 
+const ContainerPrincipal = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: ${props => props.largura};
+  height: ${props => props.altura};
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  margin: 0 auto;
+`
 
-// const container = styled.div`
-//   background-color: ${(props) => props.corDeFundo};
-//   color: ${(props) => props.corDoTexto};
-//   width: ${(props) => props.largura};
-//   height: ${(props) => props.altura};
-//     if (props.tamanho === "grande") {
-//       return "70px";
-//     } else if (props.tamanho === "pequeno") {
-//       return "30px";
-//     }
-//   }};
-// `;
+const ContainerInputs = styled.div`
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+`
+
+const InputNome = styled.input`
+  width: 15%;
+`
+
+const InputMensagem = styled.input`
+  width: 70%;
+`
+
+const BotaoEnviar = styled.button`
+  width: 15%;
+`
 
 class PostWhats extends React.Component {
   state = {
@@ -59,10 +75,9 @@ class PostWhats extends React.Component {
   };
 
   render() {
-  // está mapeado o array, precisamos deste código?
    const mensagemEnviada = this.state.arrayComentario.map((bananinha) => {
       return (
-        <p>
+        <p key={bananinha}>
           {bananinha.Nome}  {bananinha.Mensagem}
         </p>
       );
@@ -70,27 +85,26 @@ class PostWhats extends React.Component {
 
     return (
       <div>
-        <div id="container-principal">
-        <div>{mensagemEnviada}</div>
-        <div id="container-">
-          <input
-           
-            value={this.state.valorInputUsuario}
+        <ContainerPrincipal largura={"50vw"} altura={"100vh"}>
+          <div>{mensagemEnviada}</div>
+          <ContainerInputs>
+            <InputNome
             
-            onChange={this.onChangeInputUsuario}
-            placeholder={"Nome"}
-          />
-          <input
-           
-            value={this.state.valorInputMensagem}
+              value={this.state.valorInputUsuario}
+              
+              onChange={this.onChangeInputUsuario}
+              placeholder={"Nome"}
+            />
+            <InputMensagem
             
-            onChange={this.onChangeInputMensagem}
-            placeholder={"Mensagem"}
-          />
-          <button onClick={this.adicionaMensagem}>Adicionar</button>
-          </div>
-        </div>
-        
+              value={this.state.valorInputMensagem}
+              
+              onChange={this.onChangeInputMensagem}
+              placeholder={"Mensagem"}
+            />
+            <BotaoEnviar onClick={this.adicionaMensagem}>Enviar</BotaoEnviar>
+          </ContainerInputs>
+        </ContainerPrincipal>  
       </div>
     );
   }
