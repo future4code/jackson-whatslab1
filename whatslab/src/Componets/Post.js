@@ -45,7 +45,7 @@ class PostWhats extends React.Component {
    const mensagemEnviada = this.state.arrayComentario.map((bananinha) => {
       return (
         <p>
-          {bananinha.Usuario} - {bananinha.Mensagem}
+          {bananinha.nome} - {bananinha.Mensagem}
         </p>
       );
     });
@@ -66,7 +66,7 @@ class PostWhats extends React.Component {
             value={this.state.valorInputMensagem}
             
             onChange={this.onChangeInputMensagem}
-            placeholder={"Email"}
+            placeholder={"Mensagem"}
           />
           <button onClick={this.adicionaPessoa}>Adicionar</button>
         </div>
