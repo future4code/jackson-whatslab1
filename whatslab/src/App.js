@@ -1,12 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import './Post'
+//import './Post.js';
 import PostWhats from './Componets/Post';
 
-class App extends React.Component {}
+class App extends React.Component {
   render(){
-    <PostWhats />,
+    return (
+      <div>
+      <PostWhats />
+    </div>
+    )
+    
   }
-
+}
 export default App;
