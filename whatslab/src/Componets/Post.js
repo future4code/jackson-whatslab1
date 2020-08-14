@@ -2,24 +2,28 @@ import React from "react";
 
 class PostWhats extends React.Component {
   state = {
+    arrayComentario: [
+      {
+        Nome: "",
+        Mensagem: ""
+      }],
     
     valorInputUsuario: "",
     valorInputMensagem: ""
   };
 
-  adicionaMensagem = () => {
-   //essa função precisa arrumar
+  adicionaMensagem = () => { 
+   // Colocamos em uma variavel o objeto que representa uma nova mensagem
     const novaMensagem = {
       
-      Usuario: this.state.valorInputUsuario,
+      Nome: this.state.valorInputUsuario,
       
       Mensagem: this.state.valorInputMensagem
     };
+    // Define o estado "arrayComentario" como a variavel "novasMensagems"
+    this.setState({ arrayComentario: novasMensagems });
 
-
-    const novoPessoas = [...this.state.pessoas, novaPessoa];
-
-    this.setState({ pessoas: novoPessoas });
+    this.setState({ valorInputMensagem: "" })
   };
 
   onChangeInputUsuario = (event) => {
@@ -37,15 +41,16 @@ class PostWhats extends React.Component {
    const mensagemEnviada = this.state.pessoas.map((pessoa) => {
       return (
         <p>
-          {pessoa.nome} - {pessoa.email}
+          {bananinha.Nome}  {bananinha.Mensagem}
         </p>
       );
     });
 
     return (
       <div>
-        <div>{listaDeComponentes}</div>
-        <div>
+        <div id="container-principal">
+        <div>{mensagemEnviada}</div>
+        <div id="container-">
           <input
            
             value={this.state.valorInputUsuario}
@@ -58,9 +63,10 @@ class PostWhats extends React.Component {
             value={this.state.valorInputMensagem}
             
             onChange={this.onChangeInputMensagem}
-            placeholder={"Email"}
+            placeholder={"Mensagem"}
           />
-          <button onClick={this.adicionaPessoa}>Adicionar</button>
+          <button onClick={this.adicionaMensagem}>Adicionar</button>
+          </div>
         </div>
         
       </div>
