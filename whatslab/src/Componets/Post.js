@@ -2,24 +2,18 @@ import React from "react";
 import styled from "styled-components";
 
 
-const Botao = styled.button`
-  background-color: ${(props) => props.corDeFundo};
-  color: ${(props) => props.corDoTexto};
-  width: ${(props) => {
-    if (props.tamanho === "grande") {
-      return "200px";
-    } else if (props.tamanho === "pequeno") {
-      return "100px";
-    }
-  }};
-  height: ${(props) => {
-    if (props.tamanho === "grande") {
-      return "70px";
-    } else if (props.tamanho === "pequeno") {
-      return "30px";
-    }
-  }};
-`;
+// const container = styled.div`
+//   background-color: ${(props) => props.corDeFundo};
+//   color: ${(props) => props.corDoTexto};
+//   width: ${(props) => props.largura};
+//   height: ${(props) => props.altura};
+//     if (props.tamanho === "grande") {
+//       return "70px";
+//     } else if (props.tamanho === "pequeno") {
+//       return "30px";
+//     }
+//   }};
+// `;
 
 class PostWhats extends React.Component {
   state = {
