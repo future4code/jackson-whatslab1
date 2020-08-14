@@ -2,32 +2,24 @@ import React from "react";
 
 class PostWhats extends React.Component {
   state = {
-
-    arrayComentario: [
-      {
-        nome: "",
-        Mensagem: ""
-      }],
     
     valorInputUsuario: "",
     valorInputMensagem: ""
   };
 
   adicionaMensagem = () => {
-   // Colocamos em uma variavel o objeto que representa uma nova mensagem
+   //essa função precisa arrumar
     const novaMensagem = {
       
       Usuario: this.state.valorInputUsuario,
       
       Mensagem: this.state.valorInputMensagem
-      
     };
 
-  // Copia array de comentarios e adiciona um nova mensagem no final
-    const novasMensagems = [...this.state.arrayComentario, novaMensagem];
 
-    // Define o estado "arrayComentario" como a variavel "novasMensagems"
-    this.setState({ arrayComentario: novasMensagems });
+    const novoPessoas = [...this.state.pessoas, novaPessoa];
+
+    this.setState({ pessoas: novoPessoas });
   };
 
   onChangeInputUsuario = (event) => {
@@ -42,17 +34,17 @@ class PostWhats extends React.Component {
 
   render() {
   // está mapeado o array, precisamos deste código?
-   const mensagemEnviada = this.state.arrayComentario.map((bananinha) => {
+   const mensagemEnviada = this.state.pessoas.map((pessoa) => {
       return (
         <p>
-          {bananinha.Usuario} - {bananinha.Mensagem}
+          {pessoa.nome} - {pessoa.email}
         </p>
       );
     });
 
     return (
       <div>
-        <div>{mensagemEnviada}</div>
+        <div>{listaDeComponentes}</div>
         <div>
           <input
            
